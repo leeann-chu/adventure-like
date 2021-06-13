@@ -1,4 +1,5 @@
 import discord
+from API_KEYS import *
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='>')   
@@ -37,4 +38,4 @@ async def quit(ctx):
 ##
 
 
-bot.run('ODUzNzQ0OTE5MzcwMDA2NTQ4.YMZ16g.EFdkz5nCEAR2oSCIRUWmb0KZ7_A')
+bot.run(BOT_TOKEN)
