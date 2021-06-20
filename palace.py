@@ -1,5 +1,32 @@
 import json
 
+<<<<<<< HEAD
+class Go:
+  def __init__(self, exitroom):
+    self.exitroom = exitroom
+#   goCommand
+#   openCommand
+#   takeCommand
+
+class State:
+  def __init(self, current_room, visited_rooms):
+    self.current_room = current_room
+    self.visited_rooms = visited_rooms
+    
+    def get_current(self):
+        return self.current_room
+    
+    def get_visited_rooms(self):
+        return self.visited_rooms
+    
+    def set_current(self, current_room):
+        self.current_room = current_room
+        
+    def set_visited_rooms(self, visited_room):
+        self.visited_rooms = visited_room
+
+=======
+>>>>>>> e0cd923c8102028a222c0b553a213ff191f27510
 class Exit:  
     def __init__(self, name, room_id):
         self._name = name
