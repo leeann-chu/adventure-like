@@ -2,11 +2,18 @@
     "rooms": [
         {
             "id": "abyss",
-            "description": "\tYou are an investigator for the Veracia Homicide Department. Thanks to magic cutting edge technology, you are able to enter the mind of suspect parties when necessary to gather evidence. \nOn July 24th, a body was found on the beach just outside of city limits. A dinghy was found washed ashore about a hundred meters down the beach from the body. While an autopsy found the cause of death to be drowning, the body has several bruises and a black eye. It seems as though they suffered a head injury before death. \n\tThe body was identified as Theodore Zephyr, a twenty two year old Veracian native who graduated from Veracia University this past May. He was last seen on his friend and classmate Joseph Acker's boat around midnight. Reportedly, the two boys fought before Theodore, and the dinghy, disappeared from the boat. It is unknown whether Theodore took the dinghy by choice or if foul play was involved. Since hearing of his friend's death, Joseph has been in a catatonic state. Your job is to enter his mind and find out what really happened that fateful July night. \n\nYou have entered Joseph's mind, which is organized like a castle. \n\tYou have entered Joseph’s mind, which is organized like a castle.\n", 
+            "description": "\tYou are an investigator for the Veracia Homicide Department. Thanks to magic cutting edge technology, you are able to enter the mind of suspect parties when necessary to gather evidence. \nOn July 24th, a body was found on the beach just outside of city limits. A dinghy was found washed ashore about a hundred meters down the beach from the body. While an autopsy found the cause of death to be drowning, the body has several bruises and a black eye. It seems as though they suffered a head injury before death. \n\tThe body was identified as Theodore Zephyr, a twenty two year old Veracian native who graduated from Veracia University this past May. He was last seen on his friend and classmate Joseph Acker's boat around midnight. Reportedly, the two boys fought before Theodore, and the dinghy, disappeared from the boat. It is unknown whether Theodore took the dinghy by choice or if foul play was involved. Since hearing of his friend's death, Joseph has been in a catatonic state. Your job is to enter his mind and find out what really happened that fateful July night. \n\nYou have entered Joseph's mind, which is organized like a castle. \n\tYou have entered Joseph’s mind, which is organized like a castle.\n",
             "look": "The abyss surrounds you. Before you is a looming fortress. The air is still and hums with a strange energy. You stand at the portcullis, which is lifted just enough to allow someone to slip inside.",
             "exits": [
                 {
-                    "name": ["forward", "north", "castle", "gate", "fortress", "portcullis"],
+                    "name": [
+                        "forward",
+                        "north",
+                        "castle",
+                        "gate",
+                        "fortress",
+                        "portcullis"
+                    ],
                     "room_id": "courtyard"
                 }
             ]
@@ -17,15 +24,27 @@
             "look": "You can reach the door handle, but there is also a doorbell.",
             "exits": [
                 {
-                    "name": ["forward", "north", "castle", "door", "handle", "door handle"],
+                    "name": [
+                        "forward",
+                        "north",
+                        "castle",
+                        "door",
+                        "handle",
+                        "door handle"
+                    ],
                     "room_id": "entryhall"
                 },
                 {
-                    "name": ["doorbell", "ring doorbell"],
+                    "name": [
+                        "doorbell",
+                        "ring doorbell"
+                    ],
                     "room_id": "doorbell"
                 },
                 {
-                    "name": ["back"],
+                    "name": [
+                        "back"
+                    ],
                     "room_id": "abyss"
                 }
             ]
@@ -36,11 +55,15 @@
             "look": "You thought this was a trap didn't you",
             "exits": [
                 {
-                    "name": ["forward"],
+                    "name": [
+                        "forward"
+                    ],
                     "room_id": "entryhall"
                 },
                 {
-                    "name": ["back"],
+                    "name": [
+                        "back"
+                    ],
                     "room_id": "courtyard"
                 }
             ]
@@ -51,11 +74,17 @@
             "look": "The floor is covered by a lush blue rug. Four unique tapestries cover the walls, depicting scenes from various franchises. A grand chandelier hangs from the ceiling.",
             "exits": [
                 {
-                    "name": ["forward", "north", "stairway"],
+                    "name": [
+                        "forward",
+                        "north",
+                        "stairway"
+                    ],
                     "room_id": "stairway"
                 },
                 {
-                    "name": ["back"],
+                    "name": [
+                        "back"
+                    ],
                     "room_id": "courtyard"
                 }
             ]
