@@ -3,7 +3,7 @@ import json
 class Exit:  
     def __init__(self, name, room_id):
         self._name = name
-        self._room_id = room_id
+        self._room_id = room_id 
     
     def get_name(self):
         return self._name
