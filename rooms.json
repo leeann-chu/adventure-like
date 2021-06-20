@@ -2,7 +2,7 @@
     "rooms": [
         {
             "id": "abyss",
-            "description": "\tYou are an investigator for the Veracia Homicide Department. Thanks to magic cutting edge technology, you are able to enter the mind of suspect parties when necessary to gather evidence. \nOn July 24th, a body was found on the beach just outside of city limits. A dinghy was found washed ashore about a hundred meters down the beach from the body. While an autopsy found the cause of death to be drowning, the body has several bruises and a black eye. It seems as though they suffered a head injury before death. \n\tThe body was identified as Theodore Zephyr, a twenty two year old Veracian native who graduated from Veracia University this past May. He was last seen on his friend and classmate Joseph Acker's boat around midnight. Reportedly, the two boys fought before Theodore, and the dinghy, disappeared from the boat. It is unknown whether Theodore took the dinghy by choice or if foul play was involved. Since hearing of his friend's death, Joseph has been in a catatonic state. Your job is to enter his mind and find out what really happened that fateful July night. \n\nYou have entered Joseph's mind, which is organized like a castle. \n\tYou have entered Joseph’s mind, which is organized like a castle.\n", 
+            "description": "\n\nYou have entered Joseph's mind, which is organized like a castle. \n\tYou have entered Joseph’s mind, which is organized like a castle.\n", 
             "look": "The abyss surrounds you. Before you is a looming fortress. The air is still and hums with a strange energy. You stand at the portcullis, which is lifted just enough to allow someone to slip inside.",
             "exits": [
                 {
@@ -33,7 +33,7 @@
         {
             "id": "doorbell",
             "description": "The door swings open, revealing the great entry hall of the castle. A draft blows from within, carrying these words: \"Wow! You are so polite! Here is a compass to help you on your travels as a token of appreciation!\" A Compass falls from the above and into your hands",
-            "look": "You thought this was a trap didn't you",
+            "look": "And you thought this would bea trap. Tsk Tsk Tsk",
             "exits": [
                 {
                     "name": ["forward"],
@@ -47,7 +47,7 @@
         },
         {
             "id": "door",
-            "description": "With enormous effort, you push open the heavy front door. You are greated by an empty silence",
+            "description": "With enormous effort, you push open the heavy front door. You are greated by empty silence",
             "look": "I cannot tell you anything more about this room",
             "exits": [
                 {
@@ -76,5 +76,5 @@
             ]
         }
     ],
-    "startroom": "abyss"
+    "start_room": "abyss"
 }
