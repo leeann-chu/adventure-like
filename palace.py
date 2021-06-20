@@ -1,5 +1,6 @@
 import json
 
+<<<<<<< HEAD
 class Go:
   def __init__(self, exitroom):
     self.exitroom = exitroom
@@ -24,6 +25,8 @@ class State:
     def set_visited_rooms(self, visited_room):
         self.visited_rooms = visited_room
 
+=======
+>>>>>>> e0cd923c8102028a222c0b553a213ff191f27510
 class Exit:  
     def __init__(self, name, room_id):
         self._name = name
