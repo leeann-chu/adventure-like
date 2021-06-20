@@ -46,8 +46,23 @@
             ]
         },
         {
+            "id": "door",
+            "description": "With enormous effort, you push open the heavy front door. You are greated by an empty silence",
+            "look": "I cannot tell you anything more about this room",
+            "exits": [
+                {
+                    "name": ["forward"],
+                    "room_id": "entryhall"
+                },
+                {
+                    "name": ["back"],
+                    "room_id": "courtyard"
+                }
+            ]
+        },
+        {
             "id": "entryhall",
-            "description": "You stand in the grand entry hall of the castle. You are greeted by an empty silence. An extravagant stairway leads further into the castle.",
+            "description": "You stand in the Grand Entry Hall of the Castle. An extravagant stairway leads further into the castle.",
             "look": "The floor is covered by a lush blue rug. Four unique tapestries cover the walls, depicting scenes from various franchises. A grand chandelier hangs from the ceiling.",
             "exits": [
                 {

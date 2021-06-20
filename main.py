@@ -3,9 +3,12 @@ import datetime
 from palace import *
   
 def parse(inputCommand):
-  parseInput = inputCommand.split(" ")
+  parseInput = inputCommand.lower().split(" ")
+  
+  # remove extra spaces
   parseInput_noSpace = [s for s in parseInput if s != '']
-  if parseInput_noSpace.pop(0):
+  
+  if parseInput_noSpace.pop(0) is "go":
     room = Go(parseInput_noSpace)
     return room.exitroom
 
