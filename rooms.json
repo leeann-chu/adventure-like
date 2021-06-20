@@ -6,7 +6,14 @@
             "look": "The abyss surrounds you. Before you is a looming fortress. The air is still and hums with a strange energy. You stand at the portcullis, which is lifted just enough to allow someone to slip inside.",
             "exits": [
                 {
-                    "name": ["forward", "north", "castle", "gate", "fortress", "portcullis"],
+                    "name": [
+                        "forward",
+                        "north",
+                        "castle",
+                        "gate",
+                        "fortress",
+                        "portcullis"
+                    ],
                     "room_id": "courtyard"
                 }
             ]
@@ -17,15 +24,27 @@
             "look": "You can reach the door handle, but there is also a doorbell.",
             "exits": [
                 {
-                    "name": ["forward", "north", "castle", "door", "handle", "door handle"],
+                    "name": [
+                        "forward",
+                        "north",
+                        "castle",
+                        "door",
+                        "handle",
+                        "door handle"
+                    ],
                     "room_id": "entryhall"
                 },
                 {
-                    "name": ["doorbell", "ring doorbell"],
+                    "name": [
+                        "doorbell",
+                        "ring doorbell"
+                    ],
                     "room_id": "doorbell"
                 },
                 {
-                    "name": ["back"],
+                    "name": [
+                        "back"
+                    ],
                     "room_id": "abyss"
                 }
             ]
@@ -51,11 +70,15 @@
             "look": "I cannot tell you anything more about this room",
             "exits": [
                 {
-                    "name": ["forward"],
+                    "name": [
+                        "forward"
+                    ],
                     "room_id": "entryhall"
                 },
                 {
-                    "name": ["back"],
+                    "name": [
+                        "back"
+                    ],
                     "room_id": "courtyard"
                 }
             ]
@@ -66,11 +89,17 @@
             "look": "The floor is covered by a lush blue rug. Four unique tapestries cover the walls, depicting scenes from various franchises. A grand chandelier hangs from the ceiling.",
             "exits": [
                 {
-                    "name": ["forward", "north", "stairway"],
+                    "name": [
+                        "forward",
+                        "north",
+                        "stairway"
+                    ],
                     "room_id": "stairway"
                 },
                 {
-                    "name": ["back"],
+                    "name": [
+                        "back"
+                    ],
                     "room_id": "courtyard"
                 }
             ]
