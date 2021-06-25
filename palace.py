@@ -101,19 +101,9 @@ def room_name_creator():
 
 
 class Adventure:
-<<<<<<< HEAD
-	def __init__(self, room_name_list = room_name_creator(), room_object_list = room_list_creator(), start_room = rooms["start_room"]):        
-		self.room_name_list = room_name_list
-		self.room_object_list = room_object_list
-		self.start_room = start_room
-  
-	def get_room_name_list(self):
-			return self.room_name_list
-=======
     def __init__(self, room_name_list=room_name_creator(), room_object_list=room_list_creator(), start_room=rooms["start_room"]):
         self.room_name_list = room_name_list
         self.room_object_list = room_object_list
         self.start_room = start_room
->>>>>>> d8b1109fa3e4fa25519245e4e4cb0ad0f678bc72
 
 ##
