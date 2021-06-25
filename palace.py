@@ -2,83 +2,59 @@ import json
 
 with open("rooms.json", 'r') as f:
     rooms = json.load(f)
+    
+with open("items.json", 'r') as f:
+    items = json.load(f)
 
 # Possible Commands
 #   goCommand
 #   openCommand
 #   takeCommand
+#   use (train) (doorbell) 
+#   compass
 
-# ➥ Exit
-
-
-class Exit:
+#➥ Exit
+class Exit: #exists because we need "north"
     def __init__(self, name, room_id):
-        self._name = name
-        self._room_id = room_id
-
-    def get_name(self):
-        return self._name
-
-    def get_room_id(self):
-        return self._room_id
-
-    def set_name(self, new_name):
-        self._name = new_name
-
-    def set_room_id(self, new_room_id):
-        self._room_id = new_room_id
+        self.name = name
+        self.room_id = room_id
 ##
 
-# ➥ State
+#➥ Item
+class Item:
+    def __init__(self, item_name, item_description, item_memory, room_id):
+        self.name = item_name
+        self.description = item_description
+        self.memory = item_memory
+        self.room_id = room_id
 
-
+#➥ State
 class State:
-    def __init__(self, current_room, visited_rooms):
+    def __init__(self, current_room, visited_rooms, inventory=[]):
         self.current_room = current_room
         self.visited_rooms = visited_rooms
+        self.inventory = inventory
 
-    def get_current(self):
-        return self.current_room
-
-    def get_visited_rooms(self):
-        return self.visited_rooms
-
-    def set_current(self, current_room):
-        self.current_room = current_room
-
-    def set_visited_rooms(self):
-        self.visited_rooms.append(self.current_room)
+    def add_item_inventory(self, item):
+        self.inventory.append(item)
+        
+    def remove_item_inventory(self, item):
+        self.inventory.remove(item)
+    
+    def clear_inventory(self):
+    	self.inventory.clear()
 ##
 
-# ➥ Room
-
-
+#➥ Room
 class Room:
     def __init__(self, room_id, room_description, look, exits):
-        self._room_id = room_id
-        self._room_description = room_description
-        self._exits = exits
-
-    def get_room_id(self):
-        return self._room_id
-
-    def get_room_description(self):
-        return self._room_description
-
-    def get_exits(self):
-        return self._exits
-
-    def set_room_id(self, new_room_id):
-        self._room_id = new_room_id
-
-    def set_room_description(self, new_room_description):
-        self._room_description = new_room_description
-
-    def set_exits(self, new_exits):
-        self._exits = new_exits
+        self.room_id = room_id
+        self.room_description = room_description
+        self.exits = exits
+        self.look = look
 ##
 
-
+#a.k.a our json reader
 def room_list_creator():
     room_object_list = []
     for i in range(len(rooms["rooms"])):
@@ -90,20 +66,23 @@ def room_list_creator():
             rooms["rooms"][i]["id"], rooms["rooms"][i]["description"], rooms["rooms"][i]["look"], exit_list))
     return room_object_list
 
-
 def room_name_creator():
     room_list = []
     for i in range(len(rooms["rooms"])):
         room_list.append(rooms["rooms"][i]["id"])
     return room_list
 
-# ➥ Adventure
+def item_list_creator():
+    item_list = []
+    for i in range(len(items)):
+        item_list.append(Item(items[i]["name"], items[i]["description"], items[i]["memory"], items[i]["current_room"]))
+    return item_list
 
-
+#➥ Adventure 
 class Adventure:
-    def __init__(self, room_name_list=room_name_creator(), room_object_list=room_list_creator(), start_room=rooms["start_room"]):
+    def __init__(self, room_name_list=room_name_creator(), room_object_list=room_list_creator(), start_room=rooms["start_room"], items = item_list_creator()):
         self.room_name_list = room_name_list
         self.room_object_list = room_object_list
         self.start_room = start_room
-
+        self.items = items
 ##

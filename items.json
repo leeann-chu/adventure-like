@@ -1,0 +1,14 @@
+[
+    {
+        "name": "fox",
+        "description" : "There is a fox here. It is a ball of fire but small",
+        "memory" : "You had a fox once. Those were better times.",
+        "current_room": "entryhall"
+    },
+    {
+        "name": "rock",
+        "description": "There is a rock here, its name is Petroc Trelawney",
+        "memory": "...was a pet rock given to Jenna by Silas and the rest of the Heap family on her 10th birthday, also the day she discovered she was a princess. He is a small ovular gray rock, nice and smooth. He was awakened by Silas using a charm he got from the Traveling Rock Shop.",
+        "current_room": "doorbell"
+    }
+]

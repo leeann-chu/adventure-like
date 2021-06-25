@@ -2,7 +2,7 @@
     "rooms": [
         {
             "id": "abyss",
-            "description": "\n\nYou have entered Joseph's mind, which is organized like a castle. \n\tYou have entered Joseph’s mind, which is organized like a castle.\n", 
+            "description": "\n\nYou have entered Joseph's mind, which is organized like a castle.", 
             "look": "The abyss surrounds you. Before you is a looming fortress. The air is still and hums with a strange energy. You stand at the portcullis, which is lifted just enough to allow someone to slip inside.",
             "exits": [
                 {
@@ -52,10 +52,10 @@
         {
             "id": "doorbell",
             "description": "The door swings open, revealing the great entry hall of the castle. A draft blows from within, carrying these words: \"Wow! You are so polite! Here is a compass to help you on your travels as a token of appreciation!\" A Compass falls from the above and into your hands",
-            "look": "And you thought this would bea trap. Tsk Tsk Tsk",
+            "look": "And you thought this would be a trap. Tsk Tsk Tsk",
             "exits": [
                 {
-                    "name": ["forward"],
+                    "name": ["forward", "north"],
                     "room_id": "entryhall"
                 },
                 {
