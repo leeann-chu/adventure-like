@@ -37,7 +37,6 @@ with open("story.json", 'r') as f:
 def strike(text):
         return '\u0336'.join(text)
 
-
 intro = story["story_intro"]
 format_intro = intro.replace("magic", strike("magic"))
 

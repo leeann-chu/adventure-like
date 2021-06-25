@@ -92,6 +92,9 @@ class Adventure:
 		self.room_name_list = room_name_list
 		self.room_object_list = room_object_list
 		self.start_room = start_room
+  
+	def get_room_name_list(self):
+			return self.room_name_list
 
 ##
 			
