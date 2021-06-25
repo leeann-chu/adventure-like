@@ -2,26 +2,28 @@ import json
 import datetime
 from palace import *
 
-#➥ Parse Command  
+# ➥ Parse Command
+
+
 def parse(inputCommand):
     # go north
     parseInput = inputCommand.lower().split(" ")
-    
+
     # remove extra spaces
     parseInput_noSpace = [s for s in parseInput if s != '']
-    
+
     if parseInput_noSpace.pop(0) == "go":
         # make sure 'north' is a proper exit
         exit_name = " ". join(parseInput_noSpace)
-        print("current room:" + state.current_room)
-        print("room name list" + adventure.room_name_list)
         if state.current_room in adventure.room_name_list:
-   
+
             name_index = adventure.room_name_list.index(state.current_room)
             room_object = adventure.room_object_list[name_index]
-            
-            for i in room_object.exits:
-                if exit_name in i:
+
+            exit_list = room_object._exits
+
+            for i in exit_list:
+                if exit_name in i._name:
                     print("found exit_name")
                     return True
                 else:
@@ -33,9 +35,10 @@ def parse(inputCommand):
 
 with open("story.json", 'r') as f:
     story = json.load(f)
-    
+
+
 def strike(text):
-        return '\u0336'.join(text)
+    return '\u0336'.join(text)
 
 intro = story["story_intro"]
 format_intro = intro.replace("magic", strike("magic"))
@@ -50,13 +53,13 @@ state = State(rooms["start_room"], rooms["start_room"])
 
 command = ""
 while command != "quit":
-    
+
     command = input("?: ")
     parse(command)
-    
+
     if command == "leave":
         print("Alright, goodbye then. Have it your way.")
-        break	 
+        break
 """
 initialize adventure object = this gives the master room list
 
