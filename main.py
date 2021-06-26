@@ -48,7 +48,7 @@ def parse(inputCommand):
     elif command == "take":
         item_name = " ". join(parseInput_noSpace)
         if item_name in state.inventory:
-            print("Do you see a(n) " + item_name + " here?")
+            print("Do 𝘺𝘰𝘶 see a(n) " + item_name + " here?")
         else:
             for item in adventure.items:
                 if state.current_room == item.room_id and item_name == item.name and item_name not in state.inventory:
