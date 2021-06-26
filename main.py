@@ -100,7 +100,10 @@ command = ""
 while command != "quit":
 
     command = input("?: ")
-    parse(command)
+    try:
+        parse(command)
+    except IndexError:
+        print("Please input a command :/")
 
     if command == "leave":
         print("Alright, goodbye then. Have it your way.")
