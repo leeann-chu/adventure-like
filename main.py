@@ -2,9 +2,7 @@ import json
 import datetime
 from palace import *
 
-# ➥ Parse Command
-
-
+#➥ Parse Command
 def parse(inputCommand):
     # go north
     parseInput = inputCommand.lower().split(" ")
@@ -30,6 +28,10 @@ def parse(inputCommand):
                 new_name_index = adventure.room_name_list.index(
                     state.current_room)
                 new_room_object = adventure.room_object_list[new_name_index]
+                # Death Screen
+                if state.current_room == "ejectRoom":
+                    print(new_room_object.room_description)
+                    return False
                 print(new_room_object.room_description)
         if current_room != state.current_room:
             for item in adventure.items:
@@ -55,7 +57,7 @@ def parse(inputCommand):
                     state.add_item_inventory(item_name)
                     print("If you say so.")
             if item_name not in state.inventory:
-                print("Do you see a(n) " + item_name + " here?")
+                print("Do 𝘺𝘰𝘶 see a(n) " + item_name + " here?")
 
     elif command == "drop":
         item_name = " ".join(parseInput_noSpace)
@@ -74,16 +76,14 @@ def parse(inputCommand):
 
     elif command != "quit" and command != "leave":
         print("Uhhhhhhhh...What?")
+    return True
 ##
-
 
 with open("story.json", 'r') as f:
     story = json.load(f)
 
-
 def strike(text):
     return '\u0336'.join(text)
-
 
 intro = story["story_intro"]
 format_intro = intro.replace("magic", strike("magic"))
@@ -96,12 +96,12 @@ adventure = Adventure()
 
 state = State(rooms["start_room"], rooms["start_room"])
 
+moved = True
 command = ""
-while command != "quit":
-
+while command != "quit" and moved == True:
     command = input("?: ")
     try:
-        parse(command)
+        moved = parse(command)
     except IndexError:
         print("Please input a command :/")
 

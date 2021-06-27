@@ -7,10 +7,10 @@ with open("items.json", 'r') as f:
     items = json.load(f)
 
 # Possible Commands
-#   goCommand
-#   openCommand
-#   takeCommand
-#   use (train) (doorbell) 
+#   go
+#   open
+#   use (train) (doorbell) <- alias for go
+#   approach??
 #   compass
 
 #➥ Exit
@@ -27,6 +27,7 @@ class Item:
         self.description = item_description
         self.memory = item_memory
         self.room_id = room_id
+##
 
 #➥ State
 class State:

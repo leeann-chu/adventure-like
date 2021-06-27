@@ -2,8 +2,9 @@
     "rooms": [
         {
             "id": "abyss",
-            "description": "\n\nYou have entered Joseph's mind, which is organized like a castle.", 
+            "description": "You have entered Joseph's mind, which is organized like a castle.", 
             "look": "The abyss surrounds you. Before you is a looming fortress. The air is still and hums with a strange energy. You stand at the portcullis, which is lifted just enough to allow someone to slip inside.",
+            "commands": ["go", "approach", "enter"],
             "exits": [
                 {
                     "name": [
@@ -19,9 +20,17 @@
             ]
         },
         {
+            "id": "ejectRoom",
+            "description": "You have been ejected from Joseph's mind. Due to your lack of evidence the court finds Joseph Acker guilty of all charges.", 
+            "look": "YOu'vE bEEn EjEcted",
+            "commands": [],
+            "exits": []
+        },
+        {
             "id": "courtyard",
             "description": "The portcullis slams shut behind you! You stand in a courtyard. The front door of the castle towers above you.",
             "look": "You can reach the door handle, but there is also a doorbell.",
+            "commands": ["go", "open", "use", "ring"],
             "exits": [
                 {
                     "name": [
@@ -36,8 +45,7 @@
                 },
                 {
                     "name": [
-                        "doorbell",
-                        "ring doorbell"
+                        "doorbell"
                     ],
                     "room_id": "doorbell"
                 },
@@ -45,7 +53,7 @@
                     "name": [
                         "back"
                     ],
-                    "room_id": "abyss"
+                    "room_id": "ejectRoom"
                 }
             ]
         },
@@ -53,6 +61,7 @@
             "id": "doorbell",
             "description": "The door swings open, revealing the great entry hall of the castle. A draft blows from within, carrying these words: \"Wow! You are so polite! Here is a compass to help you on your travels as a token of appreciation!\" A Compass falls from the above and into your hands",
             "look": "And you thought this would be a trap. Tsk Tsk Tsk",
+            "commands": ["go"],
             "exits": [
                 {
                     "name": ["forward", "north"],
@@ -67,7 +76,8 @@
         {
             "id": "door",
             "description": "With enormous effort, you push open the heavy front door. You are greated by empty silence",
-            "look": "I cannot tell you anything more about this room",
+            "look": "I cannot tell you anything more about this area",
+            "commands": ["go"],
             "exits": [
                 {
                     "name": [
@@ -85,22 +95,101 @@
         },
         {
             "id": "entryhall",
-            "description": "You stand in the Grand Entry Hall of the Castle. An extravagant stairway leads further into the castle.",
-            "look": "The floor is covered by a lush blue rug. Four unique tapestries cover the walls, depicting scenes from various franchises. A grand chandelier hangs from the ceiling.",
+            "description": "You stand in the Grand Entry Hall of the Castle. An extravagant stairway leads upwards.",
+            "look": "The floor is covered by a lush blue rug. Four unique tapestries cover the walls, depicting scenes from various franchises. A grand chandelier hangs from the ceiling. You consider taking a closer look at the tapestries.",
+            "commands": ["go", "ascend"],
             "exits": [
                 {
                     "name": [
                         "forward",
                         "north",
-                        "stairway"
+                        "stairway",
+                        "up"
                     ],
-                    "room_id": "stairway"
+                    "room_id": "throneroom"
+                },
+                {
+                    "name": [
+                        "west",
+                        "left"
+                    ],
+                    "room_id": "westEntry"
+                },
+                {
+                    "name": [
+                        "east",
+                        "right"
+                    ],
+                    "room_id": "eastEntry"
                 },
                 {
                     "name": [
                         "back"
                     ],
-                    "room_id": "courtyard"
+                    "room_id": "door"
+                }
+            ]
+        },
+        {
+            "id": "westEntry",
+            "description": "Two tapestries hang on the West wall, one suspended by copper chain, the other by silver. Above the tapestries is a stained glass window made of cobalt and azzure hues.",
+            "look": "\tOn the tapestry hanging by a copper chain, a man stands before two suns holding a sword of light. \n\tOn the tapestry hanging by a silver chain, a boy raises a lightning bolt above his head as he stands atop the Empire State Building.",
+            "commands": ["go"],
+            "exits": [
+                {
+                    "name": [
+                        "right",
+                        "east"
+                    ],
+                    "room_id": "entryhall"
+                },
+                {
+                    "name": [
+                        "back"
+                    ],
+                    "room_id": "entryhall"
+                }
+            ]
+        },
+        {
+            "id": "eastEntry",
+            "description": "Two tapestries hang on the wall, one suspended by gold chain, the other by jade rope. Above the tapestries is a stained glass window made of garnet and scarlet hues.",
+            "look": "On the tapestry hanging by a gold chain, a man in a metal suit flies over a city of skyscrapers.\n\t The tapestry hanging upon a strand of jade is charred beyond recognition.",
+            "commands": ["go"],
+            "exits": [
+                {
+                    "name": [
+                        "west",
+                        "left"
+                    ],
+                    "room_id": "entryhall"
+                },
+                {
+                    "name": [
+                        "back"
+                    ],
+                    "room_id": "entryhall"
+                }
+            ]
+        },
+        {
+            "id": "throneroom",
+            "description": "You arrive at the top of the stairs. You are in the throne room. The throne is made of swords. It is empty. Several pathways branch off from here.",
+            "look": "You smell sweet aromas from the north \nYou hear a distant whistle from the east \nThe west is silent.",
+            "commands": ["go"],
+            "exits": [
+                {
+                    "name": [
+                        "north",
+                        "forward"
+                    ],
+                    "room_id": ""
+                },
+                {
+                    "name": [
+                        "back"
+                    ],
+                    "room_id": "entryhall"
                 }
             ]
         }
