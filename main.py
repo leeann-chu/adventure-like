@@ -2,6 +2,12 @@ import json
 import datetime
 from palace import *
 
+
+def get_room_object(adventure, state):
+    room_object_list = [
+        room_id for room_id in adventure.room_object_list if room_id.room_id == state.current_room]
+    return room_object_list[0]
+
 # ➥ Parse Command
 
 
@@ -14,9 +20,7 @@ def parse(inputCommand):
 
     command = parseInput_noSpace.pop(0)
 
-    # super cool index trick: optimizes search time by converting inputted string into a room object
-    name_index = adventure.room_name_list.index(state.current_room)
-    room_object = adventure.room_object_list[name_index]
+    room_object = get_room_object(adventure, state)
 
     if command == "go":
         exit_name = " ". join(parseInput_noSpace)
@@ -27,9 +31,11 @@ def parse(inputCommand):
             if exit_name in exitRoom.name:  # if we find the exit in the exitRoom name list
                 # set exitRoom ID to be our current room
                 state.current_room = exitRoom.room_id
-                new_name_index = adventure.room_name_list.index(
-                    state.current_room)
-                new_room_object = adventure.room_object_list[new_name_index]
+                new_room_object = get_room_object(adventure, state)
+                # Death Screen
+                if state.current_room == "ejectRoom":
+                    print(new_room_object.room_description)
+                    return False
                 print(new_room_object.room_description)
         if current_room != state.current_room:
             for item in adventure.items:
@@ -48,14 +54,14 @@ def parse(inputCommand):
     elif command == "take":
         item_name = " ". join(parseInput_noSpace)
         if item_name in state.inventory:
-            print("Do 𝘺𝘰𝘶 see a(n) " + item_name + " here?")
+            print("You already have a(n) " + item_name)
         else:
             for item in adventure.items:
                 if state.current_room == item.room_id and item_name == item.name and item_name not in state.inventory:
                     state.add_item_inventory(item_name)
                     print("If you say so.")
             if item_name not in state.inventory:
-                print("Do you see a(n) " + item_name + " here?")
+                print("Do 𝘺𝘰𝘶 see a(n) " + item_name + " here?")
 
     elif command == "drop":
         item_name = " ".join(parseInput_noSpace)
@@ -74,6 +80,7 @@ def parse(inputCommand):
 
     elif command != "quit" and command != "leave":
         print("Uhhhhhhhh...What?")
+    return True
 ##
 
 
@@ -96,12 +103,12 @@ adventure = Adventure()
 
 state = State(rooms["start_room"], rooms["start_room"])
 
+moved = True
 command = ""
-while command != "quit":
-
+while command != "quit" and moved == True:
     command = input("?: ")
     try:
-        parse(command)
+        moved = parse(command)
     except IndexError:
         print("Please input a command :/")
 
