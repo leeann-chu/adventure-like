@@ -13,18 +13,14 @@ with open("items.json", 'r') as f:
 #   approach??
 #   compass
 
-# ➥ Exit
-
-
+#➥ Exit
 class Exit:  # exists because we need "north"
     def __init__(self, name, room_id):
         self.name = name
         self.room_id = room_id
 ##
 
-# ➥ Item
-
-
+#➥ Item
 class Item:
     def __init__(self, item_name, item_description, item_memory, room_id):
         self.name = item_name
@@ -33,9 +29,7 @@ class Item:
         self.room_id = room_id
 ##
 
-# ➥ State
-
-
+#➥ State
 class State:
     def __init__(self, current_room, visited_rooms, inventory=[]):
         self.current_room = current_room
@@ -52,9 +46,7 @@ class State:
         self.inventory.clear()
 ##
 
-# ➥ Room
-
-
+#➥ Room
 class Room:
     def __init__(self, room_id, room_description, look, exits):
         self.room_id = room_id
@@ -64,7 +56,6 @@ class Room:
 ##
 
 # a.k.a our json reader
-
 
 def room_list_creator():
     room_object_list = []
@@ -85,9 +76,7 @@ def item_list_creator():
                          items[i]["memory"], items[i]["current_room"]))
     return item_list
 
-# ➥ Adventure
-
-
+#➥ Adventure
 class Adventure:
     def __init__(self, room_object_list=room_list_creator(), start_room=rooms["start_room"], items=item_list_creator()):
         self.room_object_list = room_object_list

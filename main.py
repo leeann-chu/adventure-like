@@ -1,16 +1,16 @@
 import json
 import datetime
+import random
 from palace import *
 
-
+#➥ Get Room
 def get_room_object(adventure, state):
     room_object_list = [
         room_id for room_id in adventure.room_object_list if room_id.room_id == state.current_room]
     return room_object_list[0]
+##
 
-# ➥ Parse Command
-
-
+#➥ Parse Command
 def parse(inputCommand):
     # go north
     parseInput = inputCommand.lower().split(" ")
@@ -79,7 +79,8 @@ def parse(inputCommand):
             print("--" + i)
 
     elif command != "quit" and command != "leave":
-        print("Uhhhhhhhh...What?")
+        confusion = ["Gazuntite!", "Uhhhhhhhh...What?", "Come again?", "Pardon?", "Did your cat walk accross your keyboard?", "I don't understand.", "Go fish."]
+        print(random.choice(confusion))
     return True
 ##
 

@@ -8,7 +8,6 @@
             "exits": [
                 {
                     "name": [
-                        "forward",
                         "north",
                         "castle",
                         "gate",
@@ -34,7 +33,6 @@
             "exits": [
                 {
                     "name": [
-                        "forward",
                         "north",
                         "castle",
                         "door",
@@ -51,7 +49,7 @@
                 },
                 {
                     "name": [
-                        "back"
+                        "south"
                     ],
                     "room_id": "ejectRoom"
                 }
@@ -64,11 +62,11 @@
             "commands": ["go"],
             "exits": [
                 {
-                    "name": ["forward", "north"],
+                    "name": ["north"],
                     "room_id": "entryhall"
                 },
                 {
-                    "name": ["back"],
+                    "name": ["south"],
                     "room_id": "courtyard"
                 }
             ]
@@ -81,13 +79,13 @@
             "exits": [
                 {
                     "name": [
-                        "forward"
+                        "north"
                     ],
                     "room_id": "entryhall"
                 },
                 {
                     "name": [
-                        "back"
+                        "south"
                     ],
                     "room_id": "courtyard"
                 }
@@ -97,14 +95,14 @@
             "id": "entryhall",
             "description": "You stand in the Grand Entry Hall of the Castle. An extravagant stairway leads upwards.",
             "look": "The floor is covered by a lush blue rug. Four unique tapestries cover the walls, depicting scenes from various franchises. A grand chandelier hangs from the ceiling. You consider taking a closer look at the tapestries.",
-            "commands": ["go", "ascend"],
+            "commands": ["go", "ascend", "climb", "turn"],
             "exits": [
                 {
                     "name": [
-                        "forward",
                         "north",
                         "stairway",
-                        "up"
+                        "up",
+                        "stars"
                     ],
                     "room_id": "throneroom"
                 },
@@ -124,9 +122,9 @@
                 },
                 {
                     "name": [
-                        "back"
+                        "south"
                     ],
-                    "room_id": "door"
+                    "room_id": "courtyard"
                 }
             ]
         },
@@ -134,18 +132,17 @@
             "id": "westEntry",
             "description": "Two tapestries hang on the West wall, one suspended by copper chain, the other by silver. Above the tapestries is a stained glass window made of cobalt and azzure hues.",
             "look": "\tOn the tapestry hanging by a copper chain, a man stands before two suns holding a sword of light. \n\tOn the tapestry hanging by a silver chain, a boy raises a lightning bolt above his head as he stands atop the Empire State Building.",
-            "commands": ["go"],
+            "commands": ["go", "turn"],
             "exits": [
                 {
                     "name": [
-                        "right",
                         "east"
                     ],
                     "room_id": "entryhall"
                 },
                 {
                     "name": [
-                        "back"
+                        "south"
                     ],
                     "room_id": "entryhall"
                 }
@@ -155,18 +152,17 @@
             "id": "eastEntry",
             "description": "Two tapestries hang on the wall, one suspended by gold chain, the other by jade rope. Above the tapestries is a stained glass window made of garnet and scarlet hues.",
             "look": "On the tapestry hanging by a gold chain, a man in a metal suit flies over a city of skyscrapers.\n\t The tapestry hanging upon a strand of jade is charred beyond recognition.",
-            "commands": ["go"],
+            "commands": ["go", "turn"],
             "exits": [
                 {
                     "name": [
-                        "west",
-                        "left"
+                        "west"
                     ],
                     "room_id": "entryhall"
                 },
                 {
                     "name": [
-                        "back"
+                        "south"
                     ],
                     "room_id": "entryhall"
                 }
@@ -180,14 +176,13 @@
             "exits": [
                 {
                     "name": [
-                        "north",
-                        "forward"
+                        "north"
                     ],
-                    "room_id": ""
+                    "room_id": "kitchen"
                 },
                 {
                     "name": [
-                        "back"
+                        "south"
                     ],
                     "room_id": "entryhall"
                 }
