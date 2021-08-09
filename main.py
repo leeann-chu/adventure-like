@@ -40,8 +40,8 @@ def update_descriptions(puzzle):
     for item in puzzle.goal_items:
         if item.room_id == puzzle.room_object.room_id:
             if not item.is_invisible:
-                puzzle.room_object.set_description(puzzle.room_object.description + puzzle.item_dictionary.get(item.name))
                 puzzle.room_object.set_look(puzzle.room_object.description + puzzle.item_dictionary.get(item.name))
+                puzzle.room_object.set_description(puzzle.room_object.description + puzzle.item_dictionary.get(item.name))
             item.set_invisible(True)
 ##
 
