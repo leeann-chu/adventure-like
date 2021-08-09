@@ -1,4 +1,8 @@
 {
+    "story_intro": "\tYou are an investigator for the _Veracia _Homicide _Department. Thanks to magic cutting edge technology, you are able to enter the mind of suspects when necessary to gather evidence. \n\tOn July 24th, a body was found on the beach just outside of city limits. A dinghy was found washed ashore about a hundred meters down the beach from the body. While an autopsy found the cause of death to be drowning, the body has several bruises and a black eye. It seems as though they suffered a head injury before death.",
+    
+    "police_report": "\n\tThe body was identified as ~Theodore ~Zephyr, a twenty one year old Veracian native who graduated from _Veracia _University this past May. He was last seen on his friend and classmate `Joseph `Acker's boat around midnight. Reportedly, the two boys fought before ~Mr. ~Zephyr, and the dinghy, disappeared from the boat. It is unknown whether ~Mr. ~Zephyr took the dinghy by choice or if foul play was involved. Since hearing of his friend's death, `Mr. `Acker has been in a catatonic state. Your job is to enter his mind and find out what really happened that fateful July night. \n\nYou have entered `Joseph's mind, which is organized like a castle.",
+    
     "rooms": [
         {
             "id": "abyss",
@@ -16,14 +20,16 @@
                     ],
                     "room_id": "courtyard"
                 }
-            ]
+            ],
+            "is_locked": ""
         },
         {
             "id": "ejectRoom",
             "description": "You have been ejected from Joseph's mind. Due to your lack of evidence the court finds Joseph Acker guilty of all charges.", 
-            "look": "YOu'vE bEEn EjEcted",
+            "look": "You've been Ejected",
             "commands": [],
-            "exits": []
+            "exits": [],
+            "is_locked": "T"
         },
         {
             "id": "courtyard",
@@ -39,7 +45,7 @@
                         "handle",
                         "door handle"
                     ],
-                    "room_id": "entryhall"
+                    "room_id": "door"
                 },
                 {
                     "name": [
@@ -53,7 +59,8 @@
                     ],
                     "room_id": "ejectRoom"
                 }
-            ]
+            ],
+            "is_locked": ""
         },
         {
             "id": "doorbell",
@@ -69,11 +76,12 @@
                     "name": ["south"],
                     "room_id": "courtyard"
                 }
-            ]
+            ],
+            "is_locked": ""
         },
         {
             "id": "door",
-            "description": "With enormous effort, you push open the heavy front door. You are greated by empty silence",
+            "description": "With enormous effort, you push open the heavy front door. You are greated by empty silence.",
             "look": "I cannot tell you anything more about this area",
             "commands": ["go"],
             "exits": [
@@ -89,7 +97,8 @@
                     ],
                     "room_id": "courtyard"
                 }
-            ]
+            ],
+            "is_locked": ""
         },
         {
             "id": "entryhall",
@@ -126,7 +135,8 @@
                     ],
                     "room_id": "courtyard"
                 }
-            ]
+            ],
+            "is_locked": ""
         },
         {
             "id": "westEntry",
@@ -146,7 +156,8 @@
                     ],
                     "room_id": "entryhall"
                 }
-            ]
+            ],
+            "is_locked": ""
         },
         {
             "id": "eastEntry",
@@ -166,7 +177,8 @@
                     ],
                     "room_id": "entryhall"
                 }
-            ]
+            ],
+            "is_locked": ""
         },
         {
             "id": "throneroom",
@@ -186,7 +198,68 @@
                     ],
                     "room_id": "entryhall"
                 }
-            ]
+            ],
+            "is_locked": ""
+        },
+        {
+            "id": "kitchen",
+            "description": "You step into what appears to be a kitchen. The room is lit by a hazy yellow light from the appliances, and the smells drifting from the stove and oven remind you of home. The refrigerator is slightly ajar, and a glowing light is peaking out from the inside. All of the cabinets are open except for one, and you can see boxes of sugary cereal and goldfish lining the shelves.",
+            "look": "On the stove, there is a pot of soup cooking and some pasta boiling. The soup appears to be missing some ingredients.",
+            "commands": ["go"],
+            "exits": [
+                {
+                    "name": [
+                        "fridge",
+                        "refridgerator"
+                    ],
+                    "room_id": "fridge"
+                },
+                {
+                    "name":[
+                        "soup"
+                    ],
+                    "room_id": "soup"
+                },
+                {
+                    "name":[
+                        "south"
+                    ],
+                    "room_id": "throneroom"
+                }
+            ],
+            "is_locked": ""
+        },
+        {
+            "id": "fridge",
+            "description": "There is nothing",
+            "look": "",
+            "commands": ["go"],
+            "exits": [
+                {   
+                    "name": [
+                        "kitchen",
+                        "back"
+                    ],
+                    "room_id": "kitchen"
+                }
+            ],
+            "is_locked": "T"
+        },
+        {
+            "id": "soup",
+            "description": "The soup contains broth",
+            "look": "The soup contains broth",
+            "commands": ["go"],
+            "exits": [
+                {   
+                    "name": [
+                        "kitchen",
+                        "back"
+                    ],
+                    "room_id": "kitchen"
+                }
+            ],
+            "is_locked": ""
         }
     ],
     "start_room": "abyss"
