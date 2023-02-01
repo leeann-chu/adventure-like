@@ -1,14 +1,16 @@
 {
     "story_intro": "\tYou are an investigator for the _Veracia _Homicide _Department. Thanks to magic cutting edge technology, you are able to enter the mind of suspects when necessary to gather evidence. \n\tOn July 24th, a body was found on the beach just outside of city limits. A dinghy was found washed ashore about a hundred meters down the beach from the body. While an autopsy found the cause of death to be drowning, the body has several bruises and a black eye. It seems as though they suffered a head injury before death.",
-    
     "police_report": "\n\tThe body was identified as ~Theodore ~Zephyr, a twenty one year old Veracian native who graduated from _Veracia _University this past May. He was last seen on his friend and classmate `Joseph `Acker's boat around midnight. Reportedly, the two boys fought before ~Mr. ~Zephyr, and the dinghy, disappeared from the boat. It is unknown whether ~Mr. ~Zephyr took the dinghy by choice or if foul play was involved. Since hearing of his friend's death, `Mr. `Acker has been in a catatonic state. Your job is to enter his mind and find out what really happened that fateful July night. \n\nYou have entered `Joseph's mind, which is organized like a castle.",
-    
     "rooms": [
         {
             "id": "abyss",
-            "description": "You have entered Joseph's mind, which is organized like a castle.", 
+            "description": "You have entered Joseph's mind, which is organized like a castle.",
             "look": "The abyss surrounds you. Before you is a looming fortress. The air is still and hums with a strange energy. You stand at the portcullis, which is lifted just enough to allow someone to slip inside.",
-            "commands": ["go", "approach", "enter"],
+            "commands": [
+                "go",
+                "approach",
+                "enter"
+            ],
             "exits": [
                 {
                     "name": [
@@ -25,7 +27,7 @@
         },
         {
             "id": "ejectRoom",
-            "description": "You have been ejected from Joseph's mind. Due to your lack of evidence the court finds Joseph Acker guilty of all charges.", 
+            "description": "You have been ejected from Joseph's mind. Due to your lack of evidence the court finds Joseph Acker guilty of all charges.",
             "look": "You've been Ejected",
             "commands": [],
             "exits": [],
@@ -35,7 +37,12 @@
             "id": "courtyard",
             "description": "The portcullis slams shut behind you! You stand in a courtyard. The front door of the castle towers above you.",
             "look": "You can reach the door handle, but there is also a doorbell.",
-            "commands": ["go", "open", "use", "ring"],
+            "commands": [
+                "go",
+                "open",
+                "use",
+                "ring"
+            ],
             "exits": [
                 {
                     "name": [
@@ -66,14 +73,20 @@
             "id": "doorbell",
             "description": "The door swings open, revealing the great entry hall of the castle. A draft blows from within, carrying these words: \"Wow! You are so polite! Here is a compass to help you on your travels as a token of appreciation!\" A Compass falls from the above and into your hands",
             "look": "And you thought this would be a trap. Tsk Tsk Tsk",
-            "commands": ["go"],
+            "commands": [
+                "go"
+            ],
             "exits": [
                 {
-                    "name": ["north"],
+                    "name": [
+                        "north"
+                    ],
                     "room_id": "entryhall"
                 },
                 {
-                    "name": ["south"],
+                    "name": [
+                        "south"
+                    ],
                     "room_id": "courtyard"
                 }
             ],
@@ -83,7 +96,9 @@
             "id": "door",
             "description": "With enormous effort, you push open the heavy front door. You are greated by empty silence.",
             "look": "I cannot tell you anything more about this area",
-            "commands": ["go"],
+            "commands": [
+                "go"
+            ],
             "exits": [
                 {
                     "name": [
@@ -104,7 +119,12 @@
             "id": "entryhall",
             "description": "You stand in the Grand Entry Hall of the Castle. An extravagant stairway leads upwards.",
             "look": "The floor is covered by a lush blue rug. Four unique tapestries cover the walls, depicting scenes from various franchises. A grand chandelier hangs from the ceiling. You consider taking a closer look at the tapestries.",
-            "commands": ["go", "ascend", "climb", "turn"],
+            "commands": [
+                "go",
+                "ascend",
+                "climb",
+                "turn"
+            ],
             "exits": [
                 {
                     "name": [
@@ -142,7 +162,10 @@
             "id": "westEntry",
             "description": "Two tapestries hang on the West wall, one suspended by copper chain, the other by silver. Above the tapestries is a stained glass window made of cobalt and azzure hues.",
             "look": "\tOn the tapestry hanging by a copper chain, a man stands before two suns holding a sword of light. \n\tOn the tapestry hanging by a silver chain, a boy raises a lightning bolt above his head as he stands atop the Empire State Building.",
-            "commands": ["go", "turn"],
+            "commands": [
+                "go",
+                "turn"
+            ],
             "exits": [
                 {
                     "name": [
@@ -163,7 +186,10 @@
             "id": "eastEntry",
             "description": "Two tapestries hang on the wall, one suspended by gold chain, the other by jade rope. Above the tapestries is a stained glass window made of garnet and scarlet hues.",
             "look": "On the tapestry hanging by a gold chain, a man in a metal suit flies over a city of skyscrapers.\n\t The tapestry hanging upon a strand of jade is charred beyond recognition.",
-            "commands": ["go", "turn"],
+            "commands": [
+                "go",
+                "turn"
+            ],
             "exits": [
                 {
                     "name": [
@@ -184,7 +210,9 @@
             "id": "throneroom",
             "description": "You arrive at the top of the stairs. You are in the throne room. The throne is made of swords. It is empty. Several pathways branch off from here.",
             "look": "You smell sweet aromas from the north \nYou hear a distant whistle from the east \nThe west is silent.",
-            "commands": ["go"],
+            "commands": [
+                "go"
+            ],
             "exits": [
                 {
                     "name": [
@@ -205,26 +233,34 @@
             "id": "kitchen",
             "description": "You step into what appears to be a kitchen. The room is lit by a hazy yellow light from the appliances, and the smells drifting from the stove and oven remind you of home. The refrigerator is slightly ajar, and a glowing light is peaking out from the inside. All of the cabinets are open except for one, and you can see boxes of sugary cereal and goldfish lining the shelves.",
             "look": "On the stove, there is a pot of soup cooking and some pasta boiling. The soup appears to be missing some ingredients.",
-            "commands": ["go"],
+            "commands": [
+                "go"
+            ],
             "exits": [
                 {
                     "name": [
                         "fridge",
-                        "refridgerator"
+                        "refrigerator"
                     ],
                     "room_id": "fridge"
                 },
                 {
-                    "name":[
+                    "name": [
                         "soup"
                     ],
                     "room_id": "soup"
                 },
                 {
-                    "name":[
+                    "name": [
                         "south"
                     ],
                     "room_id": "throneroom"
+                },
+                {
+                    "name": [
+                        "train"
+                    ],
+                    "room_id": "train"
                 }
             ],
             "is_locked": ""
@@ -233,9 +269,11 @@
             "id": "fridge",
             "description": "There is nothing",
             "look": "",
-            "commands": ["go"],
+            "commands": [
+                "go"
+            ],
             "exits": [
-                {   
+                {
                     "name": [
                         "kitchen",
                         "back"
@@ -249,9 +287,35 @@
             "id": "soup",
             "description": "The soup contains broth",
             "look": "The soup contains broth",
-            "commands": ["go"],
+            "commands": [
+                "go"
+            ],
             "exits": [
-                {   
+                {
+                    "name": [
+                        "kitchen",
+                        "back"
+                    ],
+                    "room_id": "kitchen"
+                }
+            ],
+            "is_locked": ""
+        },
+        {
+            "id": "train",
+            "description": "You step into a train station. A sign on a pole reads “Platform 10⅔ .” Tracks stretch out before you in multiple directions, and a large steam locomotive with the words, <uhhhhh words>, written on it is waiting with its doors open.",
+            "look": "You can see a list of stations printed on a corkboard:",
+            "commands": [
+                "go"
+            ],
+            "exits": [
+                {
+                    "name": [
+                        "soup"
+                    ],
+                    "room_id": "soup"
+                },
+                {
                     "name": [
                         "kitchen",
                         "back"

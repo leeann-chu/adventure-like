@@ -3,7 +3,7 @@ import random
 from palace import *
 
 adventure = Adventure()
-state = State(rooms["start_room"], rooms["start_room"])
+state = State(rooms["start_room"], [rooms["start_room"]])
 
 # ➥ Get Room
 
@@ -22,6 +22,10 @@ def get_item_object(item_name_input):
     return item_object_list[0]
 ##
 
+
+# train stuffs
+
+train_stations = ["soup"]
 
 # ➥ Soup Dictionary
 SoupDictionary = {
@@ -87,8 +91,22 @@ def parse(inputCommand):
                     new_room_object = room_object
                     print("This door is locked!")
 
+                if current_room == "train":
+                    if state.current_room not in state.visited_rooms:
+                        state.current_room = current_room
+                        new_room_object = room_object
+                    else:
+                        if state.current_room in train_stations:
+                            print("You step into the train and hear a mighty chuff as the pistons engage, and the wheels start turning. The train whisks you away on tracks that fill themselves in as you go.")
+
                 if current_room != state.current_room:
                     print(new_room_object.description)
+                    if current_room not in state.visited_rooms:
+                        state.add_visited_room(current_room)
+                    if state.current_room in train_stations:
+                        train = get_room_object("train")
+                        train.set_look(train.look + "\n---" +
+                                       state.current_room)
 
                 # Death Screen / Eject Room
                 if state.current_room == "ejectRoom":
