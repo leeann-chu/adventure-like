@@ -118,7 +118,7 @@
         {
             "id": "entryhall",
             "description": "You stand in the Grand Entry Hall of the Castle. An extravagant stairway leads upwards.",
-            "look": "The floor is covered by a lush blue rug. Four unique tapestries cover the walls, depicting scenes from various franchises. A grand chandelier hangs from the ceiling. You consider taking a closer look at the tapestries.",
+            "look": "The floor is covered by a lush blue rug. Four unique tapestries cover the walls, depicting scenes from various franchises. A grand chandelier hangs from the ceiling. You consider taking a closer look at the tapestries (go left or right to view tapestries).",
             "commands": [
                 "go",
                 "ascend",
@@ -131,7 +131,7 @@
                         "north",
                         "stairway",
                         "up",
-                        "stars"
+                        "stairs"
                     ],
                     "room_id": "throneroom"
                 },
@@ -231,7 +231,7 @@
         },
         {
             "id": "kitchen",
-            "description": "You step into what appears to be a kitchen. The room is lit by a hazy yellow light from the appliances, and the smells drifting from the stove and oven remind you of home. The refrigerator is slightly ajar, and a glowing light is peaking out from the inside. All of the cabinets are open except for one, and you can see boxes of sugary cereal and goldfish lining the shelves.",
+            "description": "You step into what appears to be a kitchen. The room is lit by a hazy yellow light from the appliances, and the smells drifting from the stove and oven remind you of home. \nThe refrigerator is slightly ajar, and a glowing light is peaking out from the inside. All of the cabinets are open except for one, and you can see boxes of sugary cereal and goldfish lining the shelves.",
             "look": "On the stove, there is a pot of soup cooking and some pasta boiling. The soup appears to be missing some ingredients.",
             "commands": [
                 "go"
@@ -261,6 +261,18 @@
                         "train"
                     ],
                     "room_id": "train"
+                },
+                {
+                    "name": [
+                        "basement"
+                    ],
+                    "room_id": "basement"
+                },
+                {
+                    "name": [
+                        "debug"
+                    ],
+                    "room_id": "debug_room"
                 }
             ],
             "is_locked": ""
@@ -275,8 +287,7 @@
             "exits": [
                 {
                     "name": [
-                        "kitchen",
-                        "back"
+                        "kitchen"
                     ],
                     "room_id": "kitchen"
                 }
@@ -293,17 +304,69 @@
             "exits": [
                 {
                     "name": [
-                        "kitchen",
-                        "back"
+                        "kitchen"
                     ],
                     "room_id": "kitchen"
+                },
+                {
+                    "name": [
+                        "train"
+                    ],
+                    "room_id": "train"
+                }
+            ],
+            "is_locked": ""
+        },
+        {
+            "id": "basement",
+            "description": "it looks like a basement",
+            "look": "it also still looks like a basement",
+            "commands": [
+                "go", "play"
+            ],
+            "exits": [
+                {
+                    "name": [
+                        "kitchen"
+                    ],
+                    "room_id": "kitchen"
+                },
+                {
+                    "name": [
+                        "train"
+                    ],
+                    "room_id": "train"
+                },
+                {
+                    "name": [
+                        "drinks game",
+                        "drinks"
+                    ],
+                    "room_id": "drinks_game"
+                }
+            ],
+            "is_locked": ""
+        },
+        {
+            "id": "drinks_game",
+            "description": "for mixing and brewing",
+            "look": "there are a lot of cups and jars here",
+            "commands": [
+                "go"
+            ],
+            "exits": [
+                {
+                    "name": [
+                        "basement"
+                    ],
+                    "room_id": "basement"
                 }
             ],
             "is_locked": ""
         },
         {
             "id": "train",
-            "description": "You step into a train station. A sign on a pole reads “Platform 10⅔ .” Tracks stretch out before you in multiple directions, and a large steam locomotive with the words, <uhhhhh words>, written on it is waiting with its doors open.",
+            "description": "You step into a train station. A sign on a pole reads “Platform 9¾ .” Tracks stretch out before you in multiple directions, and a large steam locomotive with the words, <uhhhhh words>, written on it is waiting with its doors open.",
             "look": "You can see a list of stations printed on a corkboard:",
             "commands": [
                 "go"
@@ -317,8 +380,36 @@
                 },
                 {
                     "name": [
-                        "kitchen",
-                        "back"
+                        "debug_room"
+                    ],
+                    "room_id": "debug_room"
+                },
+                {
+                    "name": [
+                        "kitchen"
+                    ],
+                    "room_id": "kitchen"
+                }
+            ],
+            "is_locked": ""
+        },
+        {
+            "id": "debug_room",
+            "description": "room for debugging trains",
+            "look": "",
+            "commands": [
+                "go"
+            ],
+            "exits": [
+                {
+                    "name": [
+                        "train"
+                    ],
+                    "room_id": "train"
+                },
+                {
+                    "name": [
+                        "kitchen"
                     ],
                     "room_id": "kitchen"
                 }
@@ -326,5 +417,6 @@
             "is_locked": ""
         }
     ],
-    "start_room": "abyss"
+    "start_room": "entryhall",
+    "prev_room": "entryhall"
 }
