@@ -29,19 +29,22 @@ print(decoratedPoliceReport)
 command = ""
 moved = True
 while command != "quit" and moved == True:
-    command = input("?: ")
-    try:
-        moved = parse(command)
-    except IndexError:
-        print("Please input a command :/")
+    try: 
+        command = input("?: ")
+        try:
+            moved = parse(command)
+        except IndexError:
+            print("Please input a command :/")
 
-    if command == "leave" or command == "exit":
-        print("Alright, goodbye then. Have it your way.")
-        break
+        if command == "leave" or command == "exit":
+            print("Alright, goodbye then. Have it your way.")
+            break
+    except KeyboardInterrupt:
+        quit()
 
 """
-initialize adventure object = this gives the master room list
-    = also creates item list
+initialize adventure object = this gives the master room set
+    = also creates item set
 
 player enters command
 parse the command so that it becomes a 

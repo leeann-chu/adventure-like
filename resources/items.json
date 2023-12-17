@@ -3,42 +3,42 @@
         "name": "fox",
         "description" : "There is a fox here. It is a ball of fire but small",
         "memory" : "You had a fox once. Those were better times.",
-        "current_room": "entryhall",
-        "is_invisible": "T"
+        "current_room": "kitchen",
+        "is_invisible": false
     },
     {
         "name": "rock",
         "description": "There is a rock here, its name is Petroc Trelawney",
         "memory": "...was a pet rock given to Jenna by Silas and the rest of the Heap family on her 10th birthday, also the day she discovered she was a princess. He is a small ovular gray rock, nice and smooth. He was awakened by Silas using a charm he got from the Traveling Rock Shop.",
         "current_room": "doorbell",
-        "is_invisible": ""
+        "is_invisible": false
     },
     {    
         "name": "carrot",
         "description": "There is a carrot resting on the table. It might be an ingredient for something.",
         "memory": "",
         "current_room": "kitchen",
-        "is_invisible": ""
+        "is_invisible": false
     },
     {    
         "name": "goldfish",
         "description": "There is a singular goldfish on the ground. It might be ingredient for something.",
         "memory": "",
         "current_room": "kitchen",
-        "is_invisible": ""
+        "is_invisible": false
     },
     {    
         "name": "pretzel",
         "description": "You found a pretzel! It seems it was behind this pillow all along. It might be an ingredient for something.",
         "memory": "",
         "current_room": "kitchen",
-        "is_invisible": ""
+        "is_invisible": false
     },
     {    
         "name": "fridgeMemoryObject",
         "description": "This is a memory object. This is a memory",
         "memory": "",
         "current_room": "fridge",
-        "is_invisible": ""
+        "is_invisible": false
     }
 ]

@@ -16,26 +16,24 @@ def parse(inputCommand):
 
     # remove extra spaces
     parseInput_noSpace = [s for s in parseInput if s != '']
-
-    command = parseInput_noSpace.pop(0)
+    command = parseInput_noSpace.pop(0) # remove first command
+    target_name = " ".join(parseInput_noSpace)
 
     room_object = get_room_object(adventure, state.current_room_id)
 
     if command == "go":
-        exit_name = " ". join(parseInput_noSpace)
         current_room_id = state.current_room_id
-        exit_list = room_object.exits
 
-        for exitRoom in exit_list:
-            if exit_name in exitRoom.name:  # if we find the exit in the exitRoom name list
+        # loops thorugh all room_objects in our exit list
+        for exit_object in room_object.exits:
+            if target_name in exit_object.name: # names are the possible names for exit rooms 
                 # set exitRoom ID to be our current room
-                state.current_room_id = exitRoom.room_id
+                state.current_room_id = exit_object.room_id
                 new_room_object = get_room_object(adventure, state.current_room_id)
 
                 # TO-DO: Move locked to common_utils
                 # Locked room
                 if new_room_object.is_locked:
-                    print("our room is locked")
                     state.current_room_id = current_room_id
                     new_room_object = room_object
                     print("This door is locked!")
@@ -64,9 +62,7 @@ def parse(inputCommand):
 
         # print list of items in the room
         if current_room_id != state.current_room_id:
-            for item in adventure.items:
-                if state.current_room_id == item.room_id and item.name not in state.inventory and not item.is_invisible:
-                    print("--" + item.description)
+            state.print_viewable_objects(adventure)
 
         # Room is not recognized
         # if current_room_id == state.current_room_id and is_locked_room.is_locked != "True":
@@ -74,51 +70,37 @@ def parse(inputCommand):
 
     elif command == "look":
         print(room_object.look)
-        for item in adventure.items:
-            if state.current_room_id == item.room_id and item.name not in state.inventory and not item.is_invisible:
-                print("--" + item.description)
+        state.print_viewable_objects(adventure)
 
-    elif command == "take":
-        item_name = " ".join(parseInput_noSpace)
-        if item_name in state.inventory:
-            print("You already have a(n) " + item_name)
+    elif command == "take": 
+        if target_name in state.inventory: # you already have it
+            print(f"You already have {target_name}. Don't be greedy.")
+            # need to use get_item_object() twice so it doesn't error not found
+        elif target_name in adventure.items_name_set and state.add_item_inventory(get_item_object(adventure, target_name)):
+            print(random.choice(acquiescence)) # okay you can take it fine   
+            # The Soup Puzzle - take
+            if state.current_room_id == "soup" and target_name in SoupPuzzle.finished_soup:
+                SoupPuzzle.remove_ingredient(get_item_object(adventure, target_name))  
         else:
-            for item in adventure.items:
-                if state.current_room_id == item.room_id and item_name == item.name and item_name not in state.inventory and not item.is_invisible:
-                    state.add_item_inventory(item_name)
-                    print("If you say so.")
-            if item_name not in state.inventory:
-                print("Do 𝘺𝘰𝘶 see a(n) " + item_name + " here?")
+            print(f"Do 𝘺𝘰𝘶 see {target_name} here?")        
 
-    elif command == "drop":
-        item_name = " ".join(parseInput_noSpace)
-        try:
-            state.remove_item_inventory(item_name)
-            for item in adventure.items:
-                if item.name == item_name:
-                    item.room_id = state.current_room_id
-                    # The Soup Puzzle
-                    if item in SoupPuzzle.goal_items:
-                        update_descriptions(SoupPuzzle)
-
-            print("If you say so.")
-        except ValueError:
-            print(item_name + " is not in your inventory!")
+    elif command == "drop": # if it's in your inv drop it. otherwise complain
+        if target_name not in state.inventory:
+            print(f"{target_name} is not in your inventory!")
+            # need to use get_item_object() twice so it doesn't error not found
+        else:
+            state.remove_item_inventory(get_item_object(adventure, target_name), state.current_room_id)
+            print(random.choice(acquiescence)) 
+            # The Soup Puzzle - drop
+            if state.current_room_id == "soup" and target_name in SoupPuzzle.finished_soup:
+                SoupPuzzle.add_ingredient(get_item_object(adventure, target_name))
 
     elif command == "inventory":
         for i in state.inventory:
             print("--" + i)
 
     elif command != "quit" and command != "leave" and command !="exit":
-        confusion = ["Gesundheit!", "Uhhhhhhhh...What?", "Come again?", "Pardon?",
-                     "Did your cat walk across your keyboard?", "I don't understand.", "Go fish."]
         print(random.choice(confusion))
-
-    # TO-DO: move function to SoupClass (this only needs to fire once)
-    if soup_puzzle_complete(SoupPuzzle):
-        get_room_object(adventure, "fridge").lock_room(False) # unlock the fridge
-        get_room_object(adventure, "kitchen").set_look(
-            "On the stove, there is a pot of soup cooking and some pasta boiling. The soup appears to be complete. Yum.")
-
+        
     return True
 ##

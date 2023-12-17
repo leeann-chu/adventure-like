@@ -23,7 +23,7 @@
                     "room_id": "courtyard"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "ejectRoom",
@@ -31,7 +31,7 @@
             "look": "You've been Ejected",
             "commands": [],
             "exits": [],
-            "is_locked": "T"
+            "is_locked": true
         },
         {
             "id": "courtyard",
@@ -67,7 +67,7 @@
                     "room_id": "ejectRoom"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "doorbell",
@@ -90,7 +90,7 @@
                     "room_id": "courtyard"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "door",
@@ -113,7 +113,7 @@
                     "room_id": "courtyard"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "entryhall",
@@ -156,7 +156,7 @@
                     "room_id": "courtyard"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "westEntry",
@@ -180,7 +180,7 @@
                     "room_id": "entryhall"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "eastEntry",
@@ -204,7 +204,7 @@
                     "room_id": "entryhall"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "throneroom",
@@ -216,7 +216,8 @@
             "exits": [
                 {
                     "name": [
-                        "north"
+                        "north",
+                        "kitchen"
                     ],
                     "room_id": "kitchen"
                 },
@@ -227,11 +228,11 @@
                     "room_id": "entryhall"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "kitchen",
-            "description": "You step into what appears to be a kitchen. The room is lit by a hazy yellow light from the appliances, and the smells drifting from the stove and oven remind you of home. \nThe refrigerator is slightly ajar, and a glowing light is peaking out from the inside. All of the cabinets are open except for one, and you can see boxes of sugary cereal and goldfish lining the shelves.",
+            "description": "You step into what appears to be a kitchen. The room is lit by a hazy yellow light from the appliances, and the smells drifting from the stove and oven remind you of home. \nAll of the cabinets are open except for one, and you can see boxes of sugary cereal and goldfish lining the shelves.",
             "look": "On the stove, there is a pot of soup cooking and some pasta boiling. The soup appears to be missing some ingredients.",
             "commands": [
                 "go"
@@ -275,7 +276,7 @@
                     "room_id": "debug_room"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "fridge",
@@ -292,7 +293,7 @@
                     "room_id": "kitchen"
                 }
             ],
-            "is_locked": "T"
+            "is_locked": true
         },
         {
             "id": "soup",
@@ -315,7 +316,7 @@
                     "room_id": "train"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "basement",
@@ -345,7 +346,7 @@
                     "room_id": "drinks_game"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "drinks_game",
@@ -362,7 +363,7 @@
                     "room_id": "basement"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "train",
@@ -391,7 +392,7 @@
                     "room_id": "kitchen"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         },
         {
             "id": "debug_room",
@@ -414,9 +415,10 @@
                     "room_id": "kitchen"
                 }
             ],
-            "is_locked": ""
+            "is_locked": false
         }
     ],
-    "start_room": "entryhall",
-    "prev_room": "entryhall"
+    "default_start_room": "abyss", 
+    "start_room": "kitchen",
+    "prev_room": "throneroom"
 }

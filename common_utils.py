@@ -17,25 +17,21 @@ def readItems():
 def strike(text):
     return '\u0336'.join(text)
 
-# ➥ Get Room
-def get_room_object(adventure: Adventure, room_id_input: str):
-    room_object_list = [
-        room_id for room_id in adventure.room_object_list if room_id.room_id == room_id_input]
-    return room_object_list[0]
+# ➥ Get Room - converts room_id to a room object
+def get_room_object(adventure: Adventure, room_id_input: str) -> Room:
+    return next(room for room in adventure.room_object_set if room.room_id == room_id_input)
 ##
 
-# ➥ Get Item
-def get_item_object(adventure: Adventure, item_name_input: str):
-    item_object_list = [
-        item for item in adventure.items if item.name == item_name_input]
-    return item_object_list[0]
+# ➥ Get Item - converts item_name to item object
+def get_item_object(adventure: Adventure, item_name_input: str) -> Item:
+    return next(item for item in adventure.items_object_set if item.name == item_name_input)
 ##
 
 # a.k.a our json reader
-def room_list_creator(rooms: dict):
+def room_set_creator(rooms: dict) -> set[Room]:
     """
     Generates all of the rooms in our game using our rooms.json file
-    outputs a list of `Rooms`
+    outputs a set of `Rooms`
     """
     room_object_list = []
     for i in range(len(rooms["rooms"])):
@@ -43,33 +39,16 @@ def room_list_creator(rooms: dict):
         for j in range(len(rooms["rooms"][i]["exits"])):
             exit_list.append(Exit(
                 rooms["rooms"][i]["exits"][j]["name"], rooms["rooms"][i]["exits"][j]["room_id"]))
+        exit_set = set(exit_list)
         room_object_list.append(Room(
-            rooms["rooms"][i]["id"], rooms["rooms"][i]["description"], rooms["rooms"][i]["look"], exit_list, rooms["rooms"][i]["is_locked"]))
-    return room_object_list
+            rooms["rooms"][i]["id"], rooms["rooms"][i]["description"], rooms["rooms"][i]["look"], exit_set, rooms["rooms"][i]["is_locked"]))
+    room_object_set = set(room_object_list)
+    return room_object_set
 
-
-def item_list_creator(items: list) -> list[Item]:
+def item_set_creator(items: list) -> set[Item]:
     item_list = []
     for i in range(len(items)):
         item_list.append(Item(items[i]["name"], items[i]["description"],
                          items[i]["memory"], items[i]["current_room"], bool(items[i]["is_invisible"])))
-    return item_list
-
-# ➥ Functions for the puzzles of type 'soup'
-def soup_puzzle_complete(puzzle: Puzzle):
-    complete = True
-    for i in puzzle.goal_items:
-        if i.room_id != puzzle.room_object.room_id:
-            complete = False
-    return complete
-
-def update_descriptions(puzzle: Puzzle):
-    for item in puzzle.goal_items:
-        if item.room_id == puzzle.room_object.room_id:
-            if not item.is_invisible:
-                puzzle.room_object.set_description(
-                    puzzle.room_object.description + puzzle.item_dictionary.get(item.name))
-                puzzle.room_object.set_look(
-                    puzzle.room_object.description + puzzle.item_dictionary.get(item.name))
-            item.set_invisible(True)
-##
+    item_set = set(item_list)
+    return item_set
