@@ -419,6 +419,6 @@
         }
     ],
     "default_start_room": "abyss", 
-    "start_room": "kitchen",
+    "start_room": "basement",
     "prev_room": "throneroom"
 }

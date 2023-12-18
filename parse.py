@@ -17,7 +17,7 @@ def parse(inputCommand):
     # remove extra spaces
     parseInput_noSpace = [s for s in parseInput if s != '']
     command = parseInput_noSpace.pop(0) # remove first command
-    target_name = " ".join(parseInput_noSpace)
+    target_name = " ".join(parseInput_noSpace) # go <- command kitchen <- target name
 
     room_object = get_room_object(adventure, state.current_room_id)
 
@@ -94,6 +94,12 @@ def parse(inputCommand):
             # The Soup Puzzle - drop
             if state.current_room_id == "soup" and target_name in SoupPuzzle.finished_soup:
                 SoupPuzzle.add_ingredient(get_item_object(adventure, target_name))
+
+    elif command =="mix" and state.current_room_id == "drinks_game":
+        if len(target_name.split(", ")) == 3:
+            print(drinks_game_logic(set(target_name.split(", ")), ingredient_list, drinks_game))
+        else:
+            print("You must use exactly three ingredients to create a(n) masterpiece!")
 
     elif command == "inventory":
         for i in state.inventory:

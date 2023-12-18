@@ -1,5 +1,6 @@
 # common_utils.py - for all common methods used in game
 import json
+import random
 from classes import  *
 
 # read rooms.json
@@ -52,3 +53,13 @@ def item_set_creator(items: list) -> set[Item]:
                          items[i]["memory"], items[i]["current_room"], bool(items[i]["is_invisible"])))
     item_set = set(item_list)
     return item_set
+
+def drinks_game_logic(input_ingredients: set[str], ingredient_list: set[str], drinks_game: dict) -> str:
+    if not input_ingredients.issubset(ingredient_list):
+        return "One of your ingredients is dumb and unsanctioned."
+    # check if ingredients make a happy meal
+    your_masterpiece = drinks_game.get(frozenset(input_ingredients))
+    garbage = ["Gunk", "Gak", "Blech"]
+    if your_masterpiece:
+        return f"You have created {your_masterpiece} \nNice!"
+    return f"You have created {random.choice(garbage)}."

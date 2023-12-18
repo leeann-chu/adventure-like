@@ -102,46 +102,46 @@ class State:
 # ➥ Puzzle
 class Puzzle:
     """a class used to represent our puzzles. TO-DO: create more puzzles so we can make a universal puzzle class """
-    def __init__(self, puzzle: Room, base_puzzle_description: str, home_room: Room, goal_room: Room, extra_room_states):
-        self.type = type
+    def __init__(self, base_puzzle_description: str, puzzle_room: Room, home_room: Room, goal_room: Room, extra_room_states):
+        # self.type = type
         self.base_puzzle_description = base_puzzle_description
-        self.puzzle = puzzle
-        self.goal_room = goal_room
+        self.puzzle_room = puzzle_room
         self.home_room = home_room
-        self.finished_soup = {"goldfish", "pretzel", "carrot"}
+        self.goal_room = goal_room
+        self.finished_soup = {"goldfish", "pretzel", "carrot"} # should be universalized JSON file?
         self.current_ingredients = []
         self.extra_room_states = extra_room_states
 
     def update_description(self):
         room_description = self.base_puzzle_description
-        if self.current_ingredients:
+        if self.current_ingredients: # does the soup contain anything?
             room_description = f"{self.base_puzzle_description}, {', '.join(self.current_ingredients)}"
-        self.puzzle.set_description(room_description)
-        self.puzzle.set_look(room_description)
+        self.puzzle_room.set_description(room_description)
+        self.puzzle_room.set_look(room_description)
         self.check_if_finished()
 
     def add_ingredient(self, ingredient: Item):
         self.current_ingredients.append(ingredient.name)
         ingredient.set_invisible(True)
         self.update_description()
-        print(self.puzzle.description)
+        print(self.puzzle_room.description)
     
     def remove_ingredient(self, ingredient: Item):
         self.current_ingredients.remove(ingredient.name)
         ingredient.set_invisible(False)
         self.update_description()
-        print(self.puzzle.description)
+        print(self.puzzle_room.description)
 
     # have to universalize this function, thinking using json for defaults
     def check_if_finished(self):
-        if self.finished_soup == set(self.current_ingredients):
+        if self.finished_soup == set(self.current_ingredients): 
             self.home_room.set_description(self.extra_room_states.complete_desc)
             self.home_room.set_look(self.extra_room_states.complete_look)
             print("A warm glowing light is shining from the soup")
             self.goal_room.unlock_room()
         else:
             self.home_room.set_description(self.extra_room_states.incomplete_desc)
-            self.home_room.set_look(self.extra_room_states.incomlete_look)
+            self.home_room.set_look(self.extra_room_states.incomplete_look)
             self.goal_room.lock_room()
 
 ##
